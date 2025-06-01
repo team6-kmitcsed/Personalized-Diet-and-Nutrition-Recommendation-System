@@ -22,17 +22,7 @@ if "user_email" not in st.session_state:
 st.set_page_config(page_title="Automatic Diet Recommendation", page_icon="💪",layout="wide")
 
 
-st.sidebar.write(f"**{st.session_state.get('user_name', '')}**")
-st.sidebar.write(f"`{st.session_state.get('user_email', '')}`")
-st.sidebar.markdown("---")
-# Logout button
-if st.sidebar.button("🚪 Logout"):
-    for key in list(st.session_state.keys()):
-        del st.session_state[key]
-    st.experimental_rerun()
-
 nutritions_values=['Calories','FatContent','SaturatedFatContent','CholesterolContent','SodiumContent','CarbohydrateContent','FiberContent','SugarContent','ProteinContent']
-# Streamlit states initialization
 if 'person' not in st.session_state:
     st.session_state.generated = False
     st.session_state.recommendations=None

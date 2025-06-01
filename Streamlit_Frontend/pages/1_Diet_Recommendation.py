@@ -7,12 +7,14 @@ from streamlit_echarts import st_echarts
 import logging
 import sys
 import warnings
-def suppress_tracebacks():
-    logger = logging.getLogger("streamlit")
-    handler = logging.StreamHandler(stream=sys.stderr)
-    handler.setLevel(logging.CRITICAL)
-    logger.handlers = [handler]
-    logger.setLevel(logging.CRITICAL)
+
+warnings.filterwarnings("ignore")
+@contextlib.contextmanager
+def suppress_all_exceptions():
+    try:
+        yield
+    except Exception as e:
+        st.error(f"⚠️ An error occurred: {e}")
 
 if "user_email" not in st.session_state:
     st.warning("🔐 Please log in to access this page.")

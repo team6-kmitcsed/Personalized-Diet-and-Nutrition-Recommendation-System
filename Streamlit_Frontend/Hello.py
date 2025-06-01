@@ -99,7 +99,6 @@ def render_login_ui():
 # Post-Login UI
 # --------------------
 def render_logged_in_ui():
-    st.sidebar.image(st.session_state.get("user_picture", ""), width=80)
     st.sidebar.write(f"**{st.session_state.get('user_name', '')}**")
     st.sidebar.write(f"`{st.session_state.get('user_email', '')}`")
     st.sidebar.markdown("---")

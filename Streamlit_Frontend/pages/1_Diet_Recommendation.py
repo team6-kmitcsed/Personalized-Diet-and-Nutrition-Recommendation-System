@@ -12,7 +12,7 @@ if "user_email" not in st.session_state:
     
 st.set_page_config(page_title="Automatic Diet Recommendation", page_icon="💪",layout="wide")
 
-st.sidebar.image(st.session_state.get("user_picture", ""), width=80)
+
 st.sidebar.write(f"**{st.session_state.get('user_name', '')}**")
 st.sidebar.write(f"`{st.session_state.get('user_email', '')}`")
 st.sidebar.markdown("---")

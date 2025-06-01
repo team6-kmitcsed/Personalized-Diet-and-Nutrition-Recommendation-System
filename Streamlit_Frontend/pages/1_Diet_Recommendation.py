@@ -4,7 +4,15 @@ from Generate_Recommendations import Generator
 from random import uniform as rnd
 from ImageFinder.ImageFinder import get_images_links as find_image
 from streamlit_echarts import st_echarts
-
+import logging
+import sys
+import warnings
+def suppress_tracebacks():
+    logger = logging.getLogger("streamlit")
+    handler = logging.StreamHandler(stream=sys.stderr)
+    handler.setLevel(logging.CRITICAL)
+    logger.handlers = [handler]
+    logger.setLevel(logging.CRITICAL)
 
 if "user_email" not in st.session_state:
     st.warning("🔐 Please log in to access this page.")
